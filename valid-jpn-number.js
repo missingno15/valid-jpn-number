@@ -14,9 +14,9 @@ function validJpnNumber(number) {
   if (!number.startsWith("0")) return false;
   if (number.length < 10 || number.length > 11) return false;
 
-  for (const L of prefixLengths) {
+  for (const prefixLength of prefixLengths) {
     // 電話番号から任意の長さで切り取って、市外局番リストにあるかチェック
-    if (paddedCodes.has(number.slice(0, L))) {
+    if (paddedCodes.has(number.slice(0, prefixLength))) {
       return true;
     }
   }
